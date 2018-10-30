@@ -10,7 +10,7 @@ public class WeaponData
     public Transform WeponTransform;
     public GameObject Mislle;
     public float Recharge;
-    public float TimeToAvalibility;
+    public float TimeToAvalibility = 0;
 }
 
 public class Weapon : MonoBehaviour

@@ -9,10 +9,10 @@ public class BackGroundController : MonoBehaviour
     public float MinY;
     public float StepX;
     public float BackGroundSpeed;
-
+    public float BackGroundPosition;
     void Awake()
     {
-        var position = new Vector3(MinX , 0);
+        var position = new Vector3(MinX , 0, BackGroundPosition);
         foreach (var sprite in Sprites)
         {
             sprite.transform.position = position;
@@ -36,9 +36,9 @@ public class BackGroundController : MonoBehaviour
         if (sprite.transform.position.x > -MinX) return;
         sprite.transform.position += new Vector3(MinX * 2, 0);
     }
-
+    
     public float BackGorundSpeedCalculation()
     {
-        return BackGroundSpeed * GameData.Incstance.SpeedKof * Time.deltaTime;
+        return BackGroundSpeed * GameController.Incstance.SpeedKof * Time.deltaTime;
     }
 }

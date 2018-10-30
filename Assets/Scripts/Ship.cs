@@ -1,15 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets
+[Serializable]
+public class Ship
 {
-    [Serializable]
-    public class Ship
-    {
-        public int id;
-        public int hp_points;
-        public int damage;
-        public int speed;
-        public Sprite image;
-    }
+    public float max_hp;
+    public float curent_hp;
+    public float damage;
+    public float speed;
 }
+
+
