@@ -1,30 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets;
+﻿using Assets;
 using CnControls;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
     public Ship PlayerShip;
-    public float MaxHorizontalPosition;
-    public float MaxVerticalPosition;
-    public float SpeedKof;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    public Weapon Weapon;
+
 	void Update () {
-        transform.position = new Vector3(((transform.position.x + CnInputManager.GetAxis("Horizontal") * PlayerShip.speed * SpeedKof > - MaxHorizontalPosition) &&
-            (transform.position.x + CnInputManager.GetAxis("Horizontal") * PlayerShip.speed * SpeedKof < MaxHorizontalPosition) ) 
-            ? transform.position.x + CnInputManager.GetAxis("Horizontal") * PlayerShip.speed * SpeedKof : transform.position.x,
-             ((transform.position.y + CnInputManager.GetAxis("Vertical") * PlayerShip.speed * SpeedKof > - MaxVerticalPosition) && 
-             (transform.position.y + CnInputManager.GetAxis("Vertical") * PlayerShip.speed * SpeedKof < MaxVerticalPosition)) ?
-             transform.position.y + CnInputManager.GetAxis("Vertical") * PlayerShip.speed * SpeedKof : transform.position.y,
-             0);
+        NewShipPosition(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"));
+	    if (Input.GetButton("Fire1"))
+	    {
+	        Fire();
+	    }
+	}
+
+    void NewShipPosition(float horizontal, float vertical)
+    {
+        transform.position += new Vector3(
+            ((transform.position.x + PlayerSpeedCalculation(horizontal) >
+              -GameData.Incstance.MaxHorizontalPosition) &&
+             (transform.position.x + PlayerSpeedCalculation(horizontal) <
+              GameData.Incstance.MaxHorizontalPosition))
+                ? PlayerSpeedCalculation(horizontal)
+                : 0,
+            ((transform.position.y + PlayerSpeedCalculation(vertical) >
+              -GameData.Incstance.MaxVerticalPosition) &&
+             (transform.position.y + PlayerSpeedCalculation(vertical) < 0))
+                ? PlayerSpeedCalculation(vertical)
+                : 0,
+            0);
+    }
+
+    public void Fire()
+    {
+       Weapon.Fire();
+    }
+
+    public float PlayerSpeedCalculation(float SpeedKof)
+    {
+        return SpeedKof * PlayerShip.speed * GameData.Incstance.SpeedKof * Time.deltaTime;
     }
 }

@@ -14,21 +14,17 @@ public class Missle : MonoBehaviour
         direction = direction.normalized;
     }
 
-    public void InitValues(Vector2 directon, float speed, float damage, bool isPlayerMilles)
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(direction.x, direction.y) * speed * Time.deltaTime;
+        transform.position += new Vector3(direction.x * GameData.Incstance.SpeedKof * speed * Time.deltaTime,
+            direction.y * GameData.Incstance.SpeedKof * speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Border")
+        //Debug.Log(collider.gameObject.tag);
+        if (collider.gameObject.tag == "Border")
         {
             Destroy(gameObject);
         }

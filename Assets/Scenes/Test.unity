@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157198520}
   - component: {fileID: 157198521}
+  - component: {fileID: 157198522}
   m_Layer: 0
   m_Name: Rigth
   m_TagString: Border
@@ -209,6 +210,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 30}
   m_EdgeRadius: 0
+--- !u!50 &157198522
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 157198519}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &175832338
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +292,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 175832338}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -352,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411365388}
   - component: {fileID: 411365389}
+  - component: {fileID: 411365390}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Border
@@ -397,6 +419,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &411365390
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411365387}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &441052278
 Prefab:
   m_ObjectHideFlags: 0
@@ -677,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b762eb0f3558f409212c8907843e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRange: 50
+  MovementRange: 100
   HorizontalAxisName: Horizontal
   VerticalAxisName: Vertical
   HideOnRelease: 0
@@ -754,6 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 895936714}
   - component: {fileID: 895936715}
+  - component: {fileID: 895936716}
   m_Layer: 0
   m_Name: Left
   m_TagString: Border
@@ -799,19 +842,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 30}
   m_EdgeRadius: 0
---- !u!1 &992234504 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1748642377358166, guid: 834a6ad597754d440b337bdb35a4ef20,
-    type: 2}
-  m_PrefabInternal: {fileID: 146929528}
---- !u!50 &992234508
+--- !u!50 &895936716
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 992234504}
-  m_BodyType: 0
+  m_GameObject: {fileID: 895936713}
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -824,6 +862,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &902591660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902591662}
+  - component: {fileID: 902591661}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &902591661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 902591660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9c7ff5951e85b45a02f697367ebcb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHorizontalPosition: 3.5
+  MaxVerticalPosition: 6.5
+  SpeedKof: 0.05
+--- !u!4 &902591662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 902591660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157111752
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +937,12 @@ Transform:
   m_Father: {fileID: 378683769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278771651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114412967598266946, guid: ccc9bd5cce51d5342a6cce42c4b930f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 478558511}
+  m_Script: {fileID: 11500000, guid: 2e031a3c70421b545a968cb0b661d537, type: 3}
 --- !u!1 &1281360109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1110,7 @@ GameObject:
   - component: {fileID: 1439031950}
   - component: {fileID: 1439031952}
   - component: {fileID: 1439031951}
+  - component: {fileID: 1439031953}
   m_Layer: 0
   m_Name: FireButton
   m_TagString: Untagged
@@ -1082,6 +1170,58 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1439031949}
   m_CullTransparentMesh: 0
+--- !u!114 &1439031953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439031949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1439031951}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1278771651}
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1675984853
 GameObject:
   m_ObjectHideFlags: 0

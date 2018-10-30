@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4098848869303544}
   - component: {fileID: 114412967598266946}
+  - component: {fileID: 50617403827064938}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -35,7 +36,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439763353733858}
-  - component: {fileID: 114533927935052262}
   m_Layer: 0
   m_Name: WeaponL
   m_TagString: Untagged
@@ -51,7 +51,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4492472333229988}
-  - component: {fileID: 114630836796509424}
   m_Layer: 0
   m_Name: WeaponC
   m_TagString: Untagged
@@ -67,7 +66,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4490182006755062}
-  - component: {fileID: 114741850248543998}
   m_Layer: 0
   m_Name: WeaponCL
   m_TagString: Untagged
@@ -100,7 +98,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4278560642867518}
-  - component: {fileID: 114304407683396758}
   m_Layer: 0
   m_Name: WeaponR
   m_TagString: Untagged
@@ -116,6 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4746218101894404}
+  - component: {fileID: 114577015755374968}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -131,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4721257276283282}
-  - component: {fileID: 114029466636986322}
   m_Layer: 0
   m_Name: WeaponCR
   m_TagString: Untagged
@@ -250,28 +247,26 @@ Transform:
   m_Father: {fileID: 4098848869303544}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114029466636986322
-MonoBehaviour:
+--- !u!50 &50617403827064938
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1993835303719170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65797487a6d6fe04abe86dbcbee0089f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114304407683396758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1508661344510600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65797487a6d6fe04abe86dbcbee0089f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_GameObject: {fileID: 1017652925178466}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &114412967598266946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,42 +284,39 @@ MonoBehaviour:
     damage: 0
     speed: 70
     image: {fileID: 0}
-  MaxHorizontalPosition: 3.4
-  MaxVerticalPosition: 6.5
-  SpeedKof: 0.001
---- !u!114 &114533927935052262
+  Weapon: {fileID: 114577015755374968}
+--- !u!114 &114577015755374968
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1033580250498498}
+  m_GameObject: {fileID: 1633906865745044}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65797487a6d6fe04abe86dbcbee0089f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114630836796509424
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1067388706301576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65797487a6d6fe04abe86dbcbee0089f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114741850248543998
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1118111682556320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65797487a6d6fe04abe86dbcbee0089f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  WeaponDatas:
+  - WeponTransform: {fileID: 4492472333229988}
+    Mislle: {fileID: 1748642377358166, guid: 834a6ad597754d440b337bdb35a4ef20, type: 2}
+    Recharge: 1
+    TimeToAvalibility: 0
+  - WeponTransform: {fileID: 4278560642867518}
+    Mislle: {fileID: 1538127630332852, guid: 5acbf8e879537704f8e3b204ea21c731, type: 2}
+    Recharge: 0.25
+    TimeToAvalibility: 0
+  - WeponTransform: {fileID: 4439763353733858}
+    Mislle: {fileID: 1538127630332852, guid: 5acbf8e879537704f8e3b204ea21c731, type: 2}
+    Recharge: 0.25
+    TimeToAvalibility: 0
+  - WeponTransform: {fileID: 4490182006755062}
+    Mislle: {fileID: 1616886088248180, guid: f18d006f21e8e9e4a8942874a55670ff, type: 2}
+    Recharge: 0.5
+    TimeToAvalibility: 0
+  - WeponTransform: {fileID: 4721257276283282}
+    Mislle: {fileID: 1616886088248180, guid: f18d006f21e8e9e4a8942874a55670ff, type: 2}
+    Recharge: 0.5
+    TimeToAvalibility: 0
 --- !u!212 &212713905032701538
 SpriteRenderer:
   m_ObjectHideFlags: 1
