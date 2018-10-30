@@ -10,6 +10,7 @@ public class BackGroundController : MonoBehaviour
     public float StepX;
     public float BackGroundSpeed;
     public float BackGroundPosition;
+
     void Awake()
     {
         var position = new Vector3(MinX , 0, BackGroundPosition);
