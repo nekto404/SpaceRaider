@@ -41,4 +41,22 @@ public abstract class EnemyShip : MonoBehaviour
     {
         return speedKof * ship.speed * GameController.Incstance.SpeedKof * Time.deltaTime;
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        switch (collider.gameObject.tag)
+        {
+            case "PlayerWeapon":
+                var missle = collider.gameObject.GetComponent<Missle>();
+                if (!missle) return;
+                Damage(missle.GetDamage());
+                break;
+            case "Border":
+                Destroy(gameObject);
+                break;
+            case "Meteor":
+                DestroyThis();
+                break;
+        }
+    }
 }

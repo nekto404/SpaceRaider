@@ -5,6 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     public Ship PlayerShip;
     public Weapon Weapon;
+    public static PlayerController Instance;
+
+    void Start()
+    {
+        if (Instance) return;
+        Instance = this;
+    }
 
 	void Update () {
         NewShipPosition(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"));

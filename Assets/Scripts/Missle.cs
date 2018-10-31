@@ -37,4 +37,9 @@ public class Missle : MonoBehaviour
     {
         return koef * GameController.Incstance.SpeedKof * speed * Time.deltaTime;
     }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
 }
