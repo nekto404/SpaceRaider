@@ -1130,6 +1130,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114283129419230218, guid: f51e36f7c4b4e2b40aab7be555d8fb5f,
+        type: 2}
+      propertyPath: ship.speed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114283129419230218, guid: f51e36f7c4b4e2b40aab7be555d8fb5f,
+        type: 2}
+      propertyPath: ramSpeedKof
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f51e36f7c4b4e2b40aab7be555d8fb5f, type: 2}
   m_IsPrefabAsset: 0
