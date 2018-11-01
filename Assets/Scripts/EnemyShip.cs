@@ -42,7 +42,15 @@ public abstract class EnemyShip : MonoBehaviour
         return speedKof * ship.speed * GameController.Incstance.SpeedKof * Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    public float VectorToAngle(Vector3 vector)
+    {
+        var normVector = Vector3.Normalize(vector);
+        var angle = normVector.x >0 ? Mathf.Rad2Deg * (Mathf.Acos(-normVector.y)) : 
+            - Mathf.Rad2Deg * (Mathf.Acos(-normVector.y));     
+        return angle;
+    }
+
+    public virtual void OnTriggerEnter2D(Collider2D collider)
     {
         switch (collider.gameObject.tag)
         {

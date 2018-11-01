@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Damage(float damage)
+    public void Damage(float damage)
     {
         PlayerShip.curent_hp -= damage;
         if (PlayerShip.curent_hp <= 0)
