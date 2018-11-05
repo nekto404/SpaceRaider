@@ -63,8 +63,22 @@ public abstract class EnemyShip : MonoBehaviour
     {
         var vector = new Vector3();
         vector.x = Mathf.Sin(angle);
-        vector.y = -Mathf.Cos(angle);
+        vector.y = - Mathf.Cos(angle);
         return vector;
+    }
+
+    public float NormalizeAngle(float angle)
+    {
+        angle = angle % 360;
+        if (angle < -180F)
+        {
+            angle += 360F;
+        }
+        if (angle > 180F)
+        {
+            angle -= 360F;
+        }
+        return angle;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collider)

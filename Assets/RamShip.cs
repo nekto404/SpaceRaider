@@ -13,10 +13,10 @@ public class RamShip : EnemyShip
         var player = PlayerController.Instance;
         if (!player) return;
         var directionToPlayer = Vector3.Normalize(player.transform.position - transform.position);
-        var shipDirection = Vector3.Normalize(AngleRadToVector(transform.rotation.z) * ramSpeedKof + playerFindKof * directionToPlayer);
+        var shipDirection = Vector3.Normalize(AngleDegToVector(transform.rotation.eulerAngles.z) * ramSpeedKof + playerFindKof * directionToPlayer);
         transform.position += new Vector3(ShipSpeedCalculation(shipDirection.x), ShipSpeedCalculation(shipDirection.y));
-        transform.rotation = Quaternion.Euler(0,0,VectorToAngle(directionToPlayer));
-        //Debug.LogError(AngleRadToVector(transform.rotation.z));
+        transform.rotation =  Quaternion.Euler(0, 0, Mathf.Lerp(NormalizeAngle(transform.rotation.eulerAngles.z), NormalizeAngle(VectorToAngle(directionToPlayer)), deltaTime * playerFindKof));
+        Debug.LogError(AngleDegToVector(transform.rotation.eulerAngles.z));
     }
 
     public override void OnTriggerEnter2D(Collider2D collider)
