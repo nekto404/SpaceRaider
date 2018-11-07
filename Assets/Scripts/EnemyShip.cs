@@ -53,17 +53,21 @@ public abstract class EnemyShip : MonoBehaviour
 
     public Vector3 AngleDegToVector(float angle)
     {
-        var vector = new Vector3();
-        vector.x = Mathf.Sin(Mathf.Deg2Rad * angle);
-        vector.y = - Mathf.Cos(Mathf.Deg2Rad * angle);
+        var vector = new Vector3
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle),
+            y = -Mathf.Cos(Mathf.Deg2Rad * angle)
+        };
         return vector;
     }
 
     public Vector3 AngleRadToVector(float angle)
     {
-        var vector = new Vector3();
-        vector.x = Mathf.Sin(angle);
-        vector.y = - Mathf.Cos(angle);
+        var vector = new Vector3
+        {
+            x = Mathf.Sin(angle),
+            y = -Mathf.Cos(angle)
+        };
         return vector;
     }
 
@@ -89,6 +93,7 @@ public abstract class EnemyShip : MonoBehaviour
                 var missle = collider.gameObject.GetComponent<Missle>();
                 if (!missle) return;
                 Damage(missle.GetDamage());
+                Destroy(missle.gameObject);
                 break;
             case "Border":
                 Destroy(gameObject);

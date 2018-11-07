@@ -14,25 +14,42 @@ public class RiderShip : EnemyShip
     private float rechargeTime;
 
     private float period;
-    private float curentT;
+    private float curentTime;
+    private int curentPoint;
 
     void Start()
     {
-        curentT = 0;
+        curentTime = 0;
         period = fireTime + rechargeTime;
+        curentPoint = 0;
     }
 
     public override void ShipLogic(float deltaTime)
     {
-        curentT += deltaTime;
-        if (curentT > period)
+        curentTime += deltaTime;
+        if (curentTime > period)
         {
-            curentT -= period;
+            curentTime -= period;
         }
 
-        if (curentT > rechargeTime)
+        if (curentTime > rechargeTime)
         {
             Fire();
         }
+
+        if (Vector3.Distance(transform.position, shipPath[curentPoint].transform.position) < 0.1)
+        {
+            if (curentPoint + 1 < shipPath.Count)
+            {
+                curentPoint++;
+            }
+            else
+            {
+                curentPoint = 0;
+            }
+        }
+
+        var shipDirection = Vector3.Normalize(shipPath[curentPoint].transform.position - transform.position);
+        transform.position += new Vector3(ShipSpeedCalculation(shipDirection.x), ShipSpeedCalculation(shipDirection.y));
     }
 }

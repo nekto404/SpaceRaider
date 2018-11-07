@@ -32,6 +32,13 @@ public class PlayerController : MonoBehaviour
                 Damage(damage);
                 meteor.DestroyThis();
                 break;
+            case "EnemyWeapon":
+                var missle = collider.gameObject.GetComponent<Missle>();
+                if (!missle)
+                    return;
+                Damage(missle.GetDamage());
+                Destroy(missle.gameObject);
+                break;
         }
     }
 
